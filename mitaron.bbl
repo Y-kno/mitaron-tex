@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This bbl file is created by jecon.bst ver.5.3.1
+%  The latest jecon.bst is available at
+%  <http://shirotakeda.org/ja/tex-ja/jecon-ja.html>
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Definition of \bysame
+\ifx\undefined\bysame
+\newcommand{\bysame}{\hskip.3em \leavevmode\rule[.5ex]{2.5em}{.3pt}\hskip0.5em}
+\fi
+
+%%% Definition of \bysamejp
+\ifx\undefined\bysamejp
+\newcommand{\bysamejp}{\hskip.2em
+  \leavevmode\rule[.7ex]{2.5em}{.3pt}\hskip0.3em}
+\fi
+
+
+\begin{thebibliography}{xxx}
+
+
+\harvarditem[Brisoux and Laroche]{Brisoux and Laroche}{1980}{brisoux1980}
+Brisoux, J.~E. and M.~Laroche (1980) ``A Proposed Consumer Strategy of
+  Simplification for Categorizing Brands,'' \textit{ Marketing Association},
+  pp. 112-114.
+
+\harvarditem[Clarke]{Clarke}{1985}{hukumiya1989}
+Clarke, Roger~G. (1985)  \textit{ Industrial Economics}: Wiley-Blackwell,
+  （福宮賢一訳，『産業組織論』，多賀出版）.
+
+\harvarditem[Katsumata and Abe]{Katsumata and Abe}{2011}{katsumata2011}
+Katsumata, Sotaro and Makoto Abe (2011) ``A brand purchase model of consumer
+  goods incorporating the information search and learning process.''
+
+\harvarditem[浦野]{浦野}{2012}{urano2012}
+浦野寛子 (2012)
+  「考慮集合形成メカニズムと意思決定ルール」，『マーケティングジャーナル』，第31巻，第3号，58-72頁．
+
+\harvarditem[恩蔵]{恩蔵}{1995}{onzo1995}
+恩蔵直人 (1995) 「ブランドカテゴライゼーションの枠組み」，『早稲田商学=The
+  Waseda commercial review』，第364巻，183-189頁．
+
+\harvarditem[岸]{岸}{1997}{kishi1997}
+岸志津江 (1997)
+  「広告研究と消費者行動研究の視点」，『消費者行動研究』，第5巻，第1号，1-20頁．
+
+\harvarditem[久保]{久保}{2012}{kubo2012}
+久保拓弥 (2012) 『データ解析のための統計モデリング入門』，岩波書店．
+
+\harvarditem[宮崎・星野]{宮崎・星野}{2016}{hoshino2016}
+宮崎慧・星野崇宏 (2016)
+  「商品カテゴリー購買と複数ブランド購買の段階型同時分析モデル」，『行動計量学』，第43巻，第2号．
+
+\harvarditem[香川他]{香川・白川・小林}{2013}{kagawa2013}
+香川亥一郎・白川貴久子・小林哲 (2013) 「ブランド・カテゴライゼーション:
+  双対純粋想起法による製品カテゴリーとブランドとの関係分析」，『マーケティングジャーナル』，第32巻，第3号，47-65頁．
+
+\harvarditem[植草他]{植草・竹中・菅久~修一}{2013}{uekusa2013}
+植草益・竹中康治・^^e2^^80^^8e 堀江~明子 菅久~修一 (2013)
+  『現代産業組織論』，日本評論社．
+
+\harvarditem[須永]{須永}{1983}{sunaga2008}
+須永努 (1983)
+  「広告の循環的反応モデルにおける熟成効果の測定」，『千葉商大論叢』，第45巻，第4号，15--33頁．
+
+\harvarditem[清水]{清水}{1990}{shimizu1990}
+清水聰 (1990)
+  「プロモーション効果と広告効果の分析:記憶力に基づく広告効果の減衰の視点にたって」，『三田商学研究』，第33巻，第1号，58-77頁．
+
+\harvarditem[青木]{青木}{2010}{aoki2012}
+青木幸弘 (2010) 『消費者行動の知識』，日本経済新聞出版社．
+
+\harvarditem[斉藤]{斉藤}{1999}{saito1999}
+斉藤嘉一 (1999)
+  「考慮集合形成における広告効果」，『行動計量学』，第26巻，第2号，99-106頁．
+
+\harvarditem[竹内~淑恵]{竹内~淑恵}{1996}{takeuchi996}
+竹内~淑恵西尾~チヅル (1996)
+  「テレビ広告の質的内容の短期効果と累積効果」，『消費行動研究』，第4巻，第1号，61-76頁．
+
+\harvarditem[長岡・平尾]{長岡・平尾}{2013}{nagaoka2013}
+長岡貞男・平尾由紀子 (2013) 『産業組織の経済学: 基礎と応用』，日本評論社．
+
+\end{thebibliography}
+
