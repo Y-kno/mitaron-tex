@@ -886,14 +886,14 @@ I(v_{it0}<0)×p(v_{it0}|\Theta)
 $y_{it}$ = 1の時、同時事後分布は
 
 \begin{equation}\label{formula38}
-p({\boldsymbol\mu}_{it}|\Theta,v_{it})×I(v_{it}>0)×p(v_{it}|\Theta)\\
-=I(v_{it}>0)×p(v_{it}|\Theta,{\boldsymbol\mu}_{it1})×p({\boldsymbol\mu}_{it1}|\Theta)
+p({\boldsymbol u}_{it}|\Theta,v_{it})×I(v_{it}>0)×p(v_{it}|\Theta)\\
+=I(v_{it}>0)×p(v_{it}|\Theta,{\boldsymbol\mu}_{it1})×p({\boldsymbol u}_{it1}|\Theta)
 \end{equation}
 
 と表せることから、$u_{it}$を条件付けた$v_{it}$の分布から発生させる。この時、$v_{it}$が従う分布の平均、分散は
 
 \begin{equation}\label{formula39}
-E[v_{it}|{\boldsymbol u}_{it}]=\textbf{x}_{it}^{'}\beta+\rho^{'}\Sigma_{b}^{-1}({\boldsymbol\mu}_it-W_{it1}\gamma)
+E[v_{it}|{\boldsymbol u}_{it}]=\textbf{x}_{it}^{'}\beta+\rho^{'}\Sigma_{b}^{-1}({\boldsymbol u_{it}}-W_{it1}\gamma)
 \end{equation}
 
 \begin{equation}\label{formula40}
@@ -906,7 +906,7 @@ V[v_{it}|{\boldsymbol u}_{it}] = 1-\rho^{'}\Sigma_{b}^{'}\rho
 \begin{equation} \label{formula33}
 R_{it} =
 \begin{Bmatrix}
-{\boldsymbol\mu}_{it1} :
+{\boldsymbol u}_{it1} :
 \begin{bmatrix}
 u_{it1b} \geq 0 \;\; \mbox{or} \;\; \mbox{argmax}_{k}u_{it1k} = b \
 (y^\ast_{it1b} = 1) \
@@ -916,14 +916,20 @@ u_{it1b} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{it1k} \neq b \
 \end{Bmatrix}
 \end{equation}
 
-(慶野の写真の式)
+\begin{equation} \label{formula33-1}
+Q_{itk} \leq Q_{itl} \longleftrightarrow u_{itk} \leq u_{itl}
+\end{equation}
+
+\begin{center}
+（消費者$i$の購買本数を$Q_{it} = (Q_{it_{1}}, \ldots, Q_{itb})^{\prime}$ とする。）
+\end{center}
 
 を満たすように、以下に示す式から$v_{it}$を条件付けた$u_{it}$を発生させる。
-この時、本稿では新たに式○○(慶野の式の番号)を制約として設けた。これにより、購買データの上で、同時購買が起こっている場合により多く購買している方のブランドを選択することへの潜在効用が高くなるようにサンプリングすることになるため、より消費者行動を正確に反映した潜在効用の発生及びパラメータの推定が可能になっていると考えられる。
+この時、本稿では新たに式\ref{formula33-1}を制約として設けた。これにより、購買データの上で、同時購買が起こっている場合により多く購買している方のブランドを選択することへの潜在効用が高くなるようにサンプリングすることになるため、より消費者行動を正確に反映した潜在効用の発生及びパラメータの推定が可能になっていると考えられる。
 $v_{it}$を条件付けた$u_{it}$の従う分布の平均、分散は
 
 \begin{equation}\label{formula35}
-E[{\boldsymbol\mu}_{it}|v_{it}]=W_{it}\gamma+\rho(v_{it}-\textbf{x}_{it}^{'}\beta)
+E[{\boldsymbol u}_{it}|v_{it}]=W_{it}\gamma+\rho(v_{it}-\textbf{x}_{it}^{'}\beta)
 \end{equation}
 
 \begin{equation}\label{formula36}
