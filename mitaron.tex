@@ -456,7 +456,7 @@ $\lambda_{i} = exp(z_{i})$というように線形予測子$z = \beta_{1} + \bet
 \subsubsection{同時推定モデルの概要}
 \label{subsec:simultaneous_summary}
 a.カテゴリー購買\\
-カテゴリーを選択したかを示す指示変数を$y_{it}$とする。ここで、iを個人、$t(t = 1,\ldots,T)$を購買機会とする。また、vitをカテゴリー購買に対する潜在効用とし、これを説明変数x,変数の係数を$\beta$ とすると以下のようなモデルとして扱うことができる。ただし、潜在効用の回帰式での誤差項$\epsilon$は標準正規分布に従うと仮定する。\\
+カテゴリーを選択したかを示す指示変数を$y_{it}$とする。ここで、$i$を個人、$t(t = 1,\ldots,T)$を購買機会とする。また、$v_{it}$をカテゴリー購買に対する潜在効用とし、これを説明変数$x$,変数の係数を$\beta$ とすると以下のようなモデルとして扱うことができる。ただし、潜在効用の回帰式での誤差項$\epsilon$は標準正規分布に従うと仮定する。\\
 \begin{equation} \label{formulaa1}
 y_{it} = \begin{cases}
              1 \;\; ( v_{it} > 0 )\\
@@ -469,16 +469,16 @@ y_{it} = \begin{cases}
 \end{equation}\\
 \\
 b.ブランド購買\\
-y*itbをブランドb(b = 1,\ldots,B)を選択したかを示す指示変数とする。また、この指示変数を行列としたものを$y_{it}^{*} = (y_{it1}^{*},\ldots,y_{itB}^{*})’$とすると、これらの指示変数は以下のように示される。\\
+$y_{itb}^{*}$をブランド$b(b = 1,\ldots,B)$を選択したかを示す指示変数とする。また、この指示変数を行列としたものを$\textbf{y}_{it}^{*} = (y_{it1}^{*},\ldots,y_{itB}^{*})’$とすると、これらの指示変数は以下のように示される。\\
 \begin{equation} \label{formulab1}
 y^\ast_{itb} = \begin{cases}
              1 \;\; ( u_{itb} \geq 0 \;\; \mbox{or} \;\; \mbox{argmax}_{k}u_{itb} = b)\\
              0 \;\; ( u_{itb} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{itb} \neq b)\\
              \end{cases}
 \end{equation}\\
-さらに、ブランドbに対する潜在効用を$u_{itb}$とし、説明変数を$W_{it}$、変数の係数を$\gamma$ とする。このとき、ブランドの潜在効用の行列を$u_{it} = (u_{it1}^{*},...,y_{ity_{it1}^{*B}}^{*})’$とする。ただし、個人差を考慮するために$W_{it}$は単位行列と説明変数を含む列ベクトルを並べたような形状になる。説明変数には、自社の広告接触回数、他社の広告接触回数、年収や年齢等のデモグラフィック変数が含まれる。$OW = 自社の広告接触回数(own conpany)$、$OT = 他社の広告接触回数(other conpany)$、$D =デモグラフィック変数$として、これらを以下のように示す。\\
+さらに、ブランド$b$に対する潜在効用を$u_{itb}$とし、説明変数を$W_{it}$、変数の係数を$\gamma$ とする。このとき、ブランドの潜在効用の行列を$\textbf{u}_{it} = (u_{it1}^{*},...,u_{itB}^{*})’$とする。ただし、個人差を考慮するために$W_{it}$は単位行列と説明変数を含む列ベクトルを並べたような形状になる。説明変数には、自社の広告接触回数、他社の広告接触回数、年収や年齢等のデモグラフィック変数が含まれる。$OW = 自社の広告接触回数(own conpany)$、$OT = 他社の広告接触回数(other conpany)$、$D =デモグラフィック変数$として、これらを以下のように示す。\\
 \begin{equation} \label{formulab2}
-u_{it} = W_{it}\gamma + \delta_{it}
+\textbf{u}_{it} = W_{it}\gamma + \delta_{it}
 \end{equation}\\
 \begin{equation} \label{formulab3}
   W_{it} =
@@ -498,11 +498,11 @@ u_{it} = W_{it}\gamma + \delta_{it}
 \end{equation}\\
 \\
 c.潜在効用の同時分布\\
-カテゴリ購買の潜在効用$v_{it}$とブランドの潜在効用$u_{it}$の同時分布を以下のように仮定する。\\
+カテゴリ購買の潜在効用$v_{it}$とブランドの潜在効用$\textbf{u}_{it}$の同時分布を以下のように仮定する。\\
 \begin{equation} \label{formulac1}
   \begin{pmatrix}
       v_{it} \\
-      u_{it} 
+      \textbf{u}_{it} 
    \end{pmatrix}
    \sim N
   \begin{pmatrix}
@@ -512,14 +512,14 @@ c.潜在効用の同時分布\\
     \end{pmatrix}
     ,
     \begin{pmatrix}
-    1 & \rho^\prime\\
-    \rho & \Psi + \rho \cdot \rho^\prime
+    1 & {\boldsymbol \rho}^\prime\\
+    {\boldsymbol \rho} & \Psi + {\boldsymbol \rho} \cdot {\boldsymbol \rho}^\prime
     \end{pmatrix}
   \end{pmatrix}
 \end{equation}\\
-この時、$\rho$は$v_{it}$と$u_{it}$の各要素の共分散ベクトル、$\Psi$ は$v_{it}$が所与である時の$u_{it}$の分散共分散行列である。
-この同時分布の注意点としては、カテゴリーが非購買である時は必然的にそのカテゴリーに含まれるブランドは購買されないので、$u_{it}$は存在しない。これは、ブランド選択よりカテゴリー選択が先に起きるという仮定に基づいている。\\
-また、消費者iの購買数をとすれば、
+この時、${\boldsymbol \rho}$は$v_{it}$と$\textbf{u}_{it}$の各要素の共分散ベクトル、$\Psi$ は$v_{it}$が所与である時の$\textbf{u}_{it}$の分散共分散行列である。
+この同時分布の注意点としては、カテゴリーが非購買である時は必然的にそのカテゴリーに含まれるブランドは購買されないので、$\textbf{u}_{it}$は存在しない。これは、ブランド選択よりカテゴリー選択が先に起きるという仮定に基づいている。\\
+また、消費者$i$の購買数を$\textbf{Q}_{it} = (Q_{it_{1}}, \ldots, Q_{itb})'$とすれば、 \\
 \begin{equation}
 Q_{itm} \leq Q_{itn} \iff u_{itm} \leq u_{itn}
 \end{equation}\\
@@ -527,34 +527,47 @@ Q_{itm} \leq Q_{itn} \iff u_{itm} \leq u_{itn}
 \\
 d.尤度\\
 ＜d-1＞完全データの尤度\\
-まず、指示変数$y_{it}^{*}$に欠損値がない場合をについての尤度を示す。
-カテゴリー購買の潜在効用$v_{it}$に関するパラメーターを$\Theta_{v}$、ブランド購買の潜在効用$u_{it}$に関するパラメーターを$\Theta_{u}$とする。$v_{it}$が所与の時、ブランド購買の指示変数の行列$y_{it}^{*}$の分布は、\\
+まず、指示変数$\textbf{y}_{it}^{*}$に欠損値がない場合をについての尤度を示す。
+カテゴリー購買の潜在効用$v_{it}$に関するパラメーターを$\Theta_{v}$、ブランド購買の潜在効用$\textbf{u}_{it}$に関するパラメーターを$\Theta_{u}$とする。$v_{it}$が所与の時、 \\
 \begin{equation} \label{formulad1}
-p(y^\ast_{it} | v_{it}, \Theta_{u}) = \int_{R_{it}} p(u_{it} | v_{it}, \Theta_{u}) du_{it1} \ldots du_{itB}
+R_{it} = 
+\begin{Bmatrix}
+\textbf{u}_{it} : 
+\begin{bmatrix}
+u_{itb} \geq 0 \;\; \mbox{or} \;\; \mbox{argmax}_{k}u_{itk} = b \
+(y^\ast_{itb} = 1) \
+u_{itb} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{itk} \neq b \
+(y^\ast_{itb} = 0)
+\end{bmatrix}
+\end{Bmatrix}
+\end{equation}\\
+とすればブランド購買の指示変数の行列$\textbf{y}_{it}^{*}$の分布は、\\
+\begin{equation} \label{formulad2}
+p(y^\ast_{it} | v_{it}, \Theta_{u}) = \int_{R_{it}} p(\textbf{u}_{it} | v_{it}, \Theta_{u}) du_{it1} \ldots du_{itB}
 \end{equation}\\
 となる。
 この時、尤度は以下のように示せる。
 \begin{equation} \label{formulad1_1}
 \begin{split}
-L(y, y^\ast | \Theta_{u}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
+L(y, y^\ast | \Theta_{v}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 \begin{Bmatrix}
-\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{u}dv_{it})
+\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{v}dv_{it})
 \end{Bmatrix}^{y_{it}} \times \
 \begin{Bmatrix}
-\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{u}dv_{it})
+\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{v}dv_{it})
 \end{Bmatrix}^{1 - y_{it}} \\
 &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 \begin{Bmatrix}
 \int_{v_{it} \geq 0} 
 \begin{bmatrix}
-\int_{R_{it}} p(v_{it}, u_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
+\int_{R_{it}} p(v_{it}, \textbf{u}_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
 \end{bmatrix} dv_{it}
 \end{Bmatrix}^{y_{it}} \\
 & \quad \times \
 \begin{Bmatrix}
 \int_{v_{it} < 0} 
 \begin{bmatrix}
-\int_{R_{it}} p(v_{it}, u_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
+\int_{R_{it}} p(v_{it}, \textbf{u}_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
 \end{bmatrix} dv_{it}
 \end{Bmatrix}^{1 - y_{it}}
 \end{split}
@@ -579,7 +592,7 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}) &=
 \left\{
 \int_{v_{it} \geq 0}
 \left[
-\int_{R_{it}} p(v_{it}, u_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
+\int_{R_{it}} p(v_{it}, \textbf{u}_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
 \right] dv_{it}
 \right\}^{y_{it}} \\
 & \quad \times \
@@ -588,14 +601,14 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}) &=
 \right\}^{1 - y_{it}}
 \end{split}
 \end{equation}\\
-また、ブランド購買変数$y_{it}^{*}$の欠測値がランダムである場合、ブランド購買とカテゴリー購買が独立であるといえるため、$\rho = 0$ として、以下のように表現できる。\\
+また、ブランド購買変数$y_{it}^{*}$の欠測値がランダムである場合、ブランド購買とカテゴリー購買が独立であるといえるため、${\boldsymbol \rho} = 0$ として、以下のように表現できる。\\
 \begin{equation} \label{formulad2_2}
 \begin{split}
 L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 \left\{
 \int_{v_{it} \geq 0} p(v_{it}) dv_{it}
 \left[
-\int_{R_{it}} p(u_{it} ) du_{it1} \ldots du_{itB}
+\int_{R_{it}} p(\textbf{u}_{it} ) du_{it1} \ldots du_{itB}
 \right]
 \right\}^{y_{it}} \\
 & \quad \times \
@@ -893,26 +906,21 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1
 
 \begin{figure}[htbp]
  \centering
-\begin{minipage}{0.46\columnwidth}
+\begin{minipage}{0.6\columnwidth}
  \centering
- \includegraphics[width=\columnwidth]{./fig/3-4-3_no_ad.png}
+ \includegraphics[width=\columnwidth]{./fig/3-4-3.png}
  \caption{全ブランドが広告を打たなかった場合}
- \label{fig:3-4-3_no_ad}
+ \label{fig:3-4-3}
 \end{minipage}
-\begin{minipage}{0.5\columnwidth}
- \centering
-  \includegraphics[width=\columnwidth]{./fig/3-4-3_c_ad.png}
-  \caption{ブランドCのみ広告を打った場合}
-  \label{fig:3-4-3_c_ad}
- \end{minipage}
 \end{figure}
 
 さらに、\ref{sec:poisson}節で得られた結果も踏まえ、これらの実データ解析の結論をマーケティング・広告戦略の観点から考察する。
+ある商品カテゴリー業界はA, B, Cの3ブランドの寡占状態であるとすると、3社がどれも広告出稿量を変化させない状態での売り上げは図\ref{fig:3-4-3}のグラフのようになっているとする。
 
-ある商品カテゴリー業界はA, B, Cの3ブランドの寡占状態であり、そのシェアは60\%:30\%:10\%であるとする。この時、業界全体の総売上が売り上げ100であるとすると、3社がどれも広告を売っていない状態での売り上げは図\ref{fig:3-4-3_no_ad}のようになる。
-
-ここで、ブランドCのみが広告を打った場合、それぞれの売上・シェアは図\ref{fig:3-4-3_c_ad}のように変動する。まず、従来の理論ではブランドC以外の2ブランドはその売上を落とすと考えられてきたが、本実データ解析の結果からブランドCの広告の効果はカテゴリー購買の効用に正の影響を与えるという結論が得られており、商品カテゴリー全体の売上は125にまで上昇し、これに伴って広告を発していないブランドA, ブランドBもその売上を若干伸ばすと考えられる。しかし、ブランド選択の段階においてブランドCの広告は自ブランドの選択のみに対して正の影響を与え、他2ブランドのブランド選択に対しては負の影響を与えるため、シェアの面ではブランドCのみがその割合を増やし、他2ブランドはシェアを落とすという結果になると考えられる。この時、ブランドAとブランドBとではとるべき広告戦略が異なる。元々最大シェアを持っていたブランドAはカテゴリーの総売上が増加した際に大きな恩恵を受けることになるのでシェアを最大に保っている間は自ブランドの広告を打つ必要はそれ程ないのに対し、ブランドBはシェア面でブランドCに迫られる形になっており、自ブランドの広告を打つ必要性があると言える。このように本実データ解析の結果を踏まえることで、広告戦略において、他ブランド広告の売上面・シェア面の両面への効果と自ブランドの売上・カテゴリー内でのシェア考慮した上で自ブランドに最適になるような広告戦略をとることができる。
-
+ここで、ブランドCのみが広告出稿量を増加させた場合について考える。
+まず、ブランドCの広告によるカテゴリー購買への正の効果がブランドA, ブランドBのブランド選択に与える負の効果を上回っている場合、それぞれの売上・シェアは図の真ん中のグラフのように変動する。従来の理論ではブランドC以外の2ブランドはその売上を落とすと考えられてきたが、本実データ解析の結果からブランドCの広告の効果はカテゴリー購買の効用に正の影響を与えるという結論が得られており、商品カテゴリー全体の売上は増加し、これに伴って広告を発していないブランドA, ブランドBもその売上を若干伸ばすと考えられる。しかし、ブランド選択の段階においてブランドCの広告は自ブランドの選択のみに対して正の影響を与え、他2ブランドのブランド選択に対しては負の影響を与えるため、シェアの面ではブランドCのみがその割合を増やし、他2ブランドはシェアを落とすという結果になると考えられる。
+次に、ブランドCの広告が大量に出稿されるなどして、ブランドCの広告によるカテゴリー購買への正の効果がブランドA, ブランドBのブランド選択に与える負の効果を下回っている場合、それぞれの売り上げ・シェアは図？の右のグラフのように変動する。前の例と同様にブランドCの広告はカテゴリー購買への需要を刺激し、カテゴリー全体の購買量は増加すると考えられる。しかし、このカテゴリー購買への正の影響よりも他2ブランドへのブランド選択段階での負の影響が大きいためブランドCの購買量が他2ブランドの購買量を奪い取る形で大きく伸びている。
+このように本実データ解析の結果を踏まえると、広告戦略において他ブランド広告の売上面・シェア面の両面への効果と自ブランドの売上・カテゴリー内でのシェアを考慮した上での広告戦略を考えていくことができる。
 
 \section{結論}
 \label{ch:conclusion}
@@ -975,9 +983,9 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1
 \end{equation}
 と表される。
 本実データ解析の同時推定モデルでは各パラメータに関連する部分の完全条件付き事後分布をギブスサンプリングによって評価し、同時事後分布を求める。
-具体的な各部分の完全条件付き事後分布及びMCMCの手順を以下に示す。
+具体的な各部分の完全条件付き事後分布及びMCMCの手順を以下に示す。\\[1ex] 
 
-(1)各パラメータの初期値の発生
+{\bf (1)各パラメータの初期値の発生}\\
 各パラメータの初期値は実質的に無情報となるように以下のように設定し、MCMCのサンプル列の最初に加える。
 
 \begin{gather} \label{formula31}
@@ -995,7 +1003,7 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1
  \Pi_{0\psi} = \pi_{0\psi}・I_{B}
 \end{gather}
 
-(2)カテゴリー購買の潜在効用$v_{it}$の発生
+{\bf (2)カテゴリー購買の潜在効用$v_{it}$の発生}\\
 
 購買データ$y_{it}$に対応するように、カテゴリー購買とブランド選択それぞれの潜在効用を発生させる。
 まず、カテゴリー購買の潜在効用$v_{it}$は$y_{it}$= 0の時、同時事後分布が
@@ -1022,7 +1030,7 @@ E[v_{it}|{\boldsymbol u}_{it}]=\textbf{x}_{it}^{'}\beta+\rho^{'}\Sigma_{b}^{-1}(
 V[v_{it}|{\boldsymbol u}_{it}] = 1-\rho^{'}\Sigma_{b}^{'}\rho
 \end{equation}
 
-(3)ブランド選択の潜在効用$u_{itb}$
+{\bf (3)ブランド選択の潜在効用$u_{itb}$}\\
 購買データ$y_{it}$が
 
 \begin{equation} \label{formula33}
@@ -1052,7 +1060,7 @@ E[{\boldsymbol\mu}_{it}|v_{it}]=W_{it}\gamma+\rho(v_{it}-\textbf{x}_{it}^{'}\bet
 V[{\boldsymbol\mu}_{it}|v_{it}]=\Sigma_{b}-\rho\rho^{'}=\psi
 \end{equation}
 
-(4)カテゴリー購買の潜在効用に関する係数となるパラメータ$\beta$の発生
+{\bf (4)カテゴリー購買の潜在効用に関する係数となるパラメータ$\beta$の発生}\\
 同時確率分布のうち、$\beta$に関する部分は
 
 \begin{equation}\label{formula41}
@@ -1072,7 +1080,7 @@ V[{\boldsymbol\mu}_{it}|v_{it}]=\Sigma_{b}-\rho\rho^{'}=\psi
 ここから、$\beta$の従う完全条件付き事後分布
 
 \begin{equation}\label{formula42}
-\beta \sim N({\boldsymbol\mu}_{\beta},B_{1}^{-1})
+\beta \sim N({\boldsymbol\mu}_{\beta},B_{1})
 \end{equation}
 
 \begin{equation}\label{formula43}
@@ -1082,7 +1090,7 @@ B_{1} = \left[
   +\Sigma_{t_{0}}\textbf{x}_{it0}\textbf{x}_{it0}^{'}
  \right\}
  +V_{0\beta}^{-1}
-\right]
+\right]^{-1}
 \end{equation}
 
 \begin{equation} \label{formula44}
@@ -1099,9 +1107,9 @@ x_{it_{1}} (v_{it_{1}} - \rho^{\prime} \Psi^{-1} w_{it_{1}})
 \end{equation}
 
 (ただし、表記のため$\omega_{it}$ $\equiv$ $u_{it_{1}}$ - $W_{it_{\gamma}}$ - $\rho v_{it}$とする。)
-を導出し、$\beta$をサンプリングする。
+を導出し、$\beta$をサンプリングする。\\[1ex] 
 
-(5)ブランド選択の潜在効用に関する係数となるパラメータ$\gamma$の発生
+{\bf (5)ブランド選択の潜在効用に関する係数となるパラメータ$\gamma$の発生}\\
 同時確率分布のうち、$\gamma$に関する部分は
 \begin{equation} \label{formula45}
 \prod_{i=1}^{N} \prod_{t_{1}}^{T_{i1}} p(u_{it_{1}} | v_{it_{1}}, \rho, \Psi, \beta, \gamma, x_{it_{1}}, W_{it_{1}}) \times p(\gamma)
@@ -1111,14 +1119,14 @@ x_{it_{1}} (v_{it_{1}} - \rho^{\prime} \Psi^{-1} w_{it_{1}})
 ここから、$\gamma$の従う完全条件付き事後分布
 
 \begin{equation} \label{formula46}
-\gamma \sim N(\mu_{\gamma}, V_{\gamma}^{-1})
+\gamma \sim N(\mu_{\gamma}, V_{\gamma})
 \end{equation}
 
 \begin{equation} \label{formula47}
 V_{\gamma} = 
 \left(
 \sum_{\substack{i}} \sum_{\substack{t_{1}}} W^{\prime}_{it_{1}} \Psi^{-1} W_{it_{1}} + V^{-1}_{0\gamma}
-\right)
+\right)^{-1}
 \end{equation}
 
 \begin{equation} \label{formula48}
@@ -1133,9 +1141,9 @@ V_{\gamma} =
 \end{equation}
 
 (ただし、表記のため$\xi_{it_{1}}$ $\equiv$ $u_{it_{1}}$ - $(v_{it{1}} - x^{\prime}_{it_{1}}\beta)\rho$ とする。)
-を導出し、$\gamma$をサンプリングする。
+を導出し、$\gamma$をサンプリングする。\\[1ex] 
 
-(6)カテゴリー購買に対する各ブランド選択の潜在効用の共分散行列$\rho$の発生
+{\bf (6)カテゴリー購買に対する各ブランド選択の潜在効用の共分散行列$\rho$の発生}\\
 同時確率分布のうち、$\rho$に関する部分は
 
 \begin{equation} \label{formula49}
@@ -1146,14 +1154,14 @@ V_{\gamma} =
 ここから、$\rho$の従う完全条件付き事後分布
 
 \begin{equation} \label{formula50}
-\rho \sim N(\mu_{\rho}, V_{\rho}^{-1})
+\rho \sim N(\mu_{\rho}, V_{\rho})
 \end{equation}
 
 \begin{equation} \label{formula51}
 V_{p} = 
 \left(
 \sum_{\substack{i}} \sum_{\substack{t_{1}}} (v_{it_{1}} - x^{\prime}_{it_{1}} \beta)^2 \Psi^{-1} + V^{-1}_{0\rho}
-\right)
+\right)^{-1}
 \end{equation}
 
 \begin{equation} \label{formula52}
@@ -1168,9 +1176,9 @@ V_{p} =
 \end{equation}
 
 (ただし、表記のため$\zeta_{it_{1}}$ $\equiv$ $u_{it_{1}}$ - $W_{it_{\gamma}}$ とする。)
-を導出し、$\rho$を発生する。
+を導出し、$\rho$を発生する。\\[1ex] 
 
-(7)ブランド選択の潜在効用に関する分散共分散行列$\Psi$の発生
+{\bf (7)ブランド選択の潜在効用に関する分散共分散行列$\Psi$の発生}\\
 同時確率分布のうち、$\Psi$に関する部分は
 
 (式52)
@@ -1190,9 +1198,9 @@ V_{p} =
 \right)
 \end{equation}
 
-を導出し、$\Psi$を発生する。
+を導出し、$\Psi$を発生する。\\[1ex] 
 
-(8)識別性の確保
+{\bf (8)識別性の確保}\\
 カテゴリー購買及びブランド選択における潜在効用の誤差項の分散共分散行列について事後的に識別性を確保するため、(6), (7)で求めた$\rho$, $\Psi$から
 (式25)
 として$\Sigma$を求める。
@@ -1218,9 +1226,9 @@ D = \mbox{diag} (\sigma_{11}^{-1/2}, \ldots, \sigma_{[B+1][B+1]}^{-1/2})
 を適用することでカテゴリー購買及びブランド選択における潜在効用の誤差項の分散共分散行列の対角成分は全て1で表され、相関行列と同じ形をとる。
 この処理を加えたのち、生じた$\Sigma$から再び
 (式25)
-に沿って算出した$\rho$, $\Psi$の値をサンプリングし。MCMC列に加える。
+に沿って算出した$\rho$, $\Psi$の値をサンプリングし。MCMC列に加える。\\[1ex] 
 
-(9) 推定値の算出
+{\bf (9) 推定値の算出}\\
 (1) ~ (8)を規定の回数繰り返したのち、各パラメータについてburn-inとなる回数分を破棄してそれぞれに平均をとって推定値を算出した。
 
 
