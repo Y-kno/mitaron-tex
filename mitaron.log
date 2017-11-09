@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.5.22)  9 NOV 2017 18:06
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.5.22)  9 NOV 2017 18:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -309,7 +309,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (/usr/local/texlive/2016/texmf-dist/tex/platex/pxjahyper/pxjahyper.sty
 Package: pxjahyper 2012/05/27 v0.2
 )
-(./mitaron.aux)
+No file mitaron.aux.
 \openout1 = `mitaron.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -332,7 +332,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
 \AtBeginShipoutBox=\box47
 Package hyperref Info: Link coloring OFF on input line 28.
-
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -349,6 +348,10 @@ LaTeX Info: Redefining \nameref on input line 28.
 \@outlinefile=\write3
 \openout3 = `mitaron.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 16.60605pt on input line 31.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
@@ -360,7 +363,6 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 31.
 LaTeX Font Info:    Try loading font information for U+msa on input line 31.
-
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -419,27 +421,36 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 52.
 
-(./mitaron.toc
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 2.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 2.
-)
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write4
 \openout4 = `mitaron.toc'.
 
- [1]
+[1]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 64.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 64.
+
+
+LaTeX Warning: Reference `sec:background' on page 1 undefined on input line 64.
+
+
+
+LaTeX Warning: Reference `sec:previous_research' on page 1 undefined on input l
+ine 65.
+
+
+LaTeX Warning: Reference `sec:constitution' on page 1 undefined on input line 6
+6.
+
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 68.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 74.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 74.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 74.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 74.
-
 
 Package natbib Warning: Citation `sunaga2008' on page 1 undefined on input line
  74.
@@ -471,6 +482,10 @@ Package natbib Warning: Citation `saito1999' on page 3 undefined on input line
 Package natbib Warning: Citation `urano2012' on page 3 undefined on input line 
 104.
 
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 105.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 105.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 105.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8> not available
@@ -494,4 +509,269 @@ Package natbib Warning: Citation `shimizu1990' on page 3 undefined on input lin
 e 113.
 
 
-Package natbib Warning: Citatio
+Package natbib Warning: Citation `uekusa2013' on page 3 undefined on input line
+ 118.
+
+
+Package natbib Warning: Citation `nagaoka2013' on page 3 undefined on input lin
+e 118.
+
+
+LaTeX Warning: Reference `ch:hypothesis' on page 3 undefined on input line 125.
+
+
+[3]
+
+LaTeX Warning: Reference `ch:hypothesis' on page 4 undefined on input line 131.
+
+
+
+LaTeX Warning: Reference `sec:previous_research' on page 4 undefined on input l
+ine 131.
+
+
+LaTeX Warning: Reference `ch:empirical_analysis' on page 4 undefined on input l
+ine 132.
+
+
+LaTeX Warning: Reference `sec:empirical_summary' on page 4 undefined on input l
+ine 133.
+
+
+LaTeX Warning: Reference `sec:empirical_data' on page 4 undefined on input line
+ 133.
+
+
+LaTeX Warning: Reference `sec:poisson' on page 4 undefined on input line 134.
+
+
+LaTeX Warning: Reference `sec:simultaneous_estimation_model' on page 4 undefine
+d on input line 135.
+
+
+LaTeX Warning: Reference `ch:conclusion' on page 4 undefined on input line 136.
+
+
+
+LaTeX Warning: Reference `ch:introduction' on page 4 undefined on input line 14
+0.
+
+
+Package natbib Warning: Citation `shimizu1990' on page 4 undefined on input lin
+e 143.
+
+File: ./fig/2_ad_before.png Graphic file (type bmp)
+<./fig/2_ad_before.png>
+File: ./fig/2_ad_after.png Graphic file (type bmp)
+ <./fig/2_ad_after.png>
+
+LaTeX Warning: Reference `sec:empirical_data' on page 4 undefined on input line
+ 170.
+
+
+LaTeX Warning: Reference `sec:poisson' on page 4 undefined on input line 171.
+
+
+LaTeX Warning: Reference `sec:simultaneous_estimation_model' on page 4 undefine
+d on input line 172.
+
+[4] [5]
+
+LaTeX Warning: Reference `tab:brand_summary1' on page 6 undefined on input line
+ 181.
+
+[6]
+
+LaTeX Warning: Reference `tab:royality_ex' on page 7 undefined on input line 22
+1.
+
+
+LaTeX Warning: Reference `tab:consumer_distribution' on page 7 undefined on inp
+ut line 241.
+
+
+LaTeX Warning: Reference `tab:distribution_dummy' on page 7 undefined on input 
+line 243.
+
+[7]
+File: ./fig/3-2-2_seibetsu.png Graphic file (type bmp)
+ <./fig/3-2-2_seibetsu.png>
+File: ./fig/3-2-2_nensyu.png Graphic file (type bmp)
+ <./fig/3-2-2_nensyu.png>
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 293--305
+[][]$[]$[] []$[]$[] 
+ []
+
+File: ./fig/3-2-2_kekkon.png Graphic file (type bmp)
+<./fig/3-2-2_kekkon.png> [8] [9]
+
+LaTeX Warning: Reference `sec:simultaneous_estimation_model' on page 10 undefin
+ed on input line 320.
+
+[10]
+
+LaTeX Warning: Reference `tab:law-molt_beer_frequency_distribution_rate' on pag
+e 11 undefined on input line 366.
+
+
+LaTeX Warning: Reference `sec:empirical_data' on page 11 undefined on input lin
+e 367.
+
+
+LaTeX Warning: Reference `tab:explanatory_variable_description' on page 11 unde
+fined on input line 370.
+
+
+LaTeX Warning: Reference `subsec:royality' on page 11 undefined on input line 4
+02.
+
+
+Overfull \hbox (45.26003pt too wide) in paragraph at lines 394--411
+ [][][] 
+ []
+
+
+LaTeX Warning: Reference `tab:poisson_result' on page 11 undefined on input lin
+e 421.
+
+
+LaTeX Warning: Reference `sec:simultaneous_estimation_model' on page 11 undefin
+ed on input line 428.
+
+[11]
+
+LaTeX Warning: Reference `sec:poisson' on page 12 undefined on input line 454.
+
+[12] [13]
+Overfull \hbox (51.07675pt too wide) in paragraph at lines 561--561
+[] 
+ []
+
+[14] [15]
+Overfull \hbox (10.81749pt too wide) detected at line 695
+[]\OML/cmm/m/it/10 R[] \OT1/cmr/m/n/10 = []
+ []
+
+
+Overfull \hbox (51.07675pt too wide) in paragraph at lines 721--721
+[] 
+ []
+
+[16]
+
+LaTeX Warning: Reference `tab:simultaneous_category_variables' on page 17 undef
+ined on input line 768.
+
+
+LaTeX Warning: Reference `tab:simultaneous_brand_variables' on page 17 undefine
+d on input line 768.
+
+
+Overfull \hbox (8.8338pt too wide) in paragraph at lines 774--788
+ [][][] 
+ []
+
+
+Overfull \hbox (15.90144pt too wide) in paragraph at lines 795--806
+ [][][] 
+ []
+
+
+LaTeX Warning: Reference `tab:simultaneous_category_coef' on page 17 undefined 
+on input line 815.
+
+
+LaTeX Warning: Reference `tab:simultaneous_brand_coef' on page 17 undefined on 
+input line 818.
+
+
+LaTeX Warning: Reference `sec:poisson' on page 17 undefined on input line 820.
+
+[17]
+
+Package natbib Warning: Citation `shimizu1990' on page 18 undefined on input li
+ne 822.
+
+[18]
+Overfull \hbox (55.05104pt too wide) in paragraph at lines 874--890
+ [][][] 
+ []
+
+File: ./fig/3-4-3_no_ad.png Graphic file (type bmp)
+<./fig/3-4-3_no_ad.png>
+File: ./fig/3-4-3_c_ad.png Graphic file (type bmp)
+ <./fig/3-4-3_c_ad.png>
+
+LaTeX Warning: Reference `sec:poisson' on page 19 undefined on input line 910.
+
+
+LaTeX Warning: Reference `fig:3-4-3_no_ad' on page 19 undefined on input line 9
+12.
+
+
+LaTeX Warning: Reference `fig:3-4-3_c_ad' on page 19 undefined on input line 91
+4.
+
+[19] [20]
+
+LaTeX Warning: Reference `sec:conclusion' on page 21 undefined on input line 92
+0.
+
+
+LaTeX Warning: Reference `sec:issue' on page 21 undefined on input line 921.
+
+
+LaTeX Warning: Reference `sec:suggestion' on page 21 undefined on input line 92
+2.
+
+[21]
+
+Package natbib Warning: Citation `urano2012' on page 22 undefined on input line
+ 952.
+
+[22]
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 1018.
+
+Overfull \hbox (40.0745pt too wide) detected at line 1039
+[]\OML/cmm/m/it/10 R[] \OT1/cmr/m/n/10 = []
+ []
+
+[23] [24] [25] [26]
+No file mitaron.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1233.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1233.
+(./mitaron.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1233.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1233.
+
+
+
+Package rerunfilecheck Warning: File `mitaron.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `mitaron.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  A0CDB0B9F4D3C2C80298791979A5BAE2;1828.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1233.
+ ) 
+Here is how much of TeX's memory you used:
+ 6623 strings out of 493693
+ 94528 string characters out of 6149787
+ 191115 words of memory out of 5000000
+ 10055 multiletter control sequences out of 15000+600000
+ 28999 words of font info for 130 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 31i,28n,28p,1468b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on mitaron.dvi (29 pages, 115076 bytes).

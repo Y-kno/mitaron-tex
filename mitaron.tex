@@ -1072,7 +1072,7 @@ V[{\boldsymbol\mu}_{it}|v_{it}]=\Sigma_{b}-\rho\rho^{'}=\psi
 ここから、$\beta$の従う完全条件付き事後分布
 
 \begin{equation}\label{formula42}
-\beta \sim N({\boldsymbol\mu}_{\beta},B_{1}^{-1})
+\beta \sim N({\boldsymbol\mu}_{\beta},B_{1})
 \end{equation}
 
 \begin{equation}\label{formula43}
@@ -1082,7 +1082,7 @@ B_{1} = \left[
   +\Sigma_{t_{0}}\textbf{x}_{it0}\textbf{x}_{it0}^{'}
  \right\}
  +V_{0\beta}^{-1}
-\right]
+\right]^{-1}
 \end{equation}
 
 \begin{equation} \label{formula44}
@@ -1111,14 +1111,14 @@ x_{it_{1}} (v_{it_{1}} - \rho^{\prime} \Psi^{-1} w_{it_{1}})
 ここから、$\gamma$の従う完全条件付き事後分布
 
 \begin{equation} \label{formula46}
-\gamma \sim N(\mu_{\gamma}, V_{\gamma}^{-1})
+\gamma \sim N(\mu_{\gamma}, V_{\gamma})
 \end{equation}
 
 \begin{equation} \label{formula47}
 V_{\gamma} = 
 \left(
 \sum_{\substack{i}} \sum_{\substack{t_{1}}} W^{\prime}_{it_{1}} \Psi^{-1} W_{it_{1}} + V^{-1}_{0\gamma}
-\right)
+\right)^{-1}
 \end{equation}
 
 \begin{equation} \label{formula48}
@@ -1146,14 +1146,14 @@ V_{\gamma} =
 ここから、$\rho$の従う完全条件付き事後分布
 
 \begin{equation} \label{formula50}
-\rho \sim N(\mu_{\rho}, V_{\rho}^{-1})
+\rho \sim N(\mu_{\rho}, V_{\rho})
 \end{equation}
 
 \begin{equation} \label{formula51}
 V_{p} = 
 \left(
 \sum_{\substack{i}} \sum_{\substack{t_{1}}} (v_{it_{1}} - x^{\prime}_{it_{1}} \beta)^2 \Psi^{-1} + V^{-1}_{0\rho}
-\right)
+\right)^{-1}
 \end{equation}
 
 \begin{equation} \label{formula52}
