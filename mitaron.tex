@@ -476,24 +476,24 @@ y^\ast_{itb} = \begin{cases}
              0 \;\; ( u_{itb} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{itb} \neq b)\\
              \end{cases}
 \end{equation}\\
-さらに、ブランド$b$に対する潜在効用を$u_{itb}$とし、説明変数を$W_{it}$、変数の係数を$\gamma$ とする。このとき、ブランドの潜在効用の行列を$\textbf{u}_{it} = (u_{it1}^{*},...,u_{itB}^{*})’$とする。ただし、個人差を考慮するために$W_{it}$は単位行列と説明変数を含む列ベクトルを並べたような形状になる。説明変数には、自社の広告接触回数、他社の広告接触回数、年収や年齢等のデモグラフィック変数が含まれる。$OW = 自社の広告接触回数(own conpany)$、$OT = 他社の広告接触回数(other conpany)$、$D =デモグラフィック変数$として、これらを以下のように示す。\\
+さらに、ブランド$b$に対する潜在効用を$u_{itb}$とし、説明変数を$W_{it}$、変数の係数を$\gamma$ とする。このとき、ブランドの潜在効用の行列を$\textbf{u}_{it} = (u_{it1}^{*},...,u_{itB}^{*})’$とする。ただし、個人差を考慮するために$W_{it}$は単位行列と説明変数を含む列ベクトルを並べたような形状になる。説明変数には、自社の広告接触回数、他社の広告接触回数、年収や年齢等のデモグラフィック変数が含まれる。$OW = 自社の広告接触回数(own conpany)$、$OT = 他社の広告接触回数(other conpany)$、$B = ブランドロイヤリティ$として、これらを以下のように示す。\\
 \begin{equation} \label{formulab2}
 \textbf{u}_{it} = W_{it}\gamma + \delta_{it}
 \end{equation}\\
 \begin{equation} \label{formulab3}
   W_{it} =
   \begin{pmatrix}
-      1 & 0 & 0 & \ldots & 0 & OW_{it1} & OT_{it1} & D_{it1} \\
-      0 & 1 & 0 & \ldots & 0 & OW_{it2} & OT_{it2} & D_{it2} \\
+      1 & 0 & 0 & \ldots & 0 & OW_{it1} & OT_{it1} & B_{it1} \\
+      0 & 1 & 0 & \ldots & 0 & OW_{it2} & OT_{it2} & B_{it2} \\
        &  & \vdots &  &  & \vdots & \vdots & \vdots \\
-      0 & 0 & 0 & \ldots & 1 & OW_{itB} & OT_{itB} & D_{itB}
+      0 & 0 & 0 & \ldots & 1 & OW_{itB} & OT_{itB} & B_{itB}
     \end{pmatrix}
     ,
 \end{equation}\\
 \begin{equation} \label{formulab4}
   \boldsymbol{\gamma} =
   \begin{pmatrix}
-      \gamma_{it1} & \ldots & \gamma_{B} & \gamma_{OW} & \gamma_{OT} & \gamma_{D}
+      \gamma_{it1} & \ldots & \gamma_{B} & \gamma_{OW} & \gamma_{OT} & \gamma_{B}
    \end{pmatrix}
 \end{equation}\\
 \\
@@ -1051,9 +1051,6 @@ V_{p} =
 {\bf (7)ブランド選択の潜在効用に関する分散共分散行列$\Psi$の発生}\\
 同時確率分布のうち、$\Psi$に関する部分は
 
-(式52)
-(式53)
-
 \begin{equation} \label{formula53}
 \prod_{i=1}^{N} \prod_{t_{1}}^{T_{i1}} p(u_{it_{1}} | v_{it_{1}}, \rho, \Psi, \beta, \gamma, x_{it_{1}}, W_{it_{1}}) \times p(\Psi)
 \end{equation}
@@ -1072,7 +1069,15 @@ V_{p} =
 
 {\bf (8)識別性の確保}\\
 カテゴリー購買及びブランド選択における潜在効用の誤差項の分散共分散行列について事後的に識別性を確保するため、(6), (7)で求めた$\rho$, $\Psi$から
-(式25)
+
+\begin{equation} \label{formulad54-1}
+\sum = 
+\begin{pmatrix}
+1 & p^\prime\\
+p & \Psi + p \cdot p^\prime
+\end{pmatrix}
+\end{equation}
+
 として$\Sigma$を求める。
 
 この時、$\sigma$の(1, 1)成分を$\sigma_{11}$, (2, 2)成分を$\sigma_{22}$, $\ldots$ (n, n)成分を$\sigma_{nn}$と表すものとし、
@@ -1095,7 +1100,7 @@ D = \mbox{diag} (\sigma_{11}^{-1/2}, \ldots, \sigma_{[B+1][B+1]}^{-1/2})
 
 を適用することでカテゴリー購買及びブランド選択における潜在効用の誤差項の分散共分散行列の対角成分は全て1で表され、相関行列と同じ形をとる。
 この処理を加えたのち、生じた$\Sigma$から再び
-(式25)
+(式\ref{formulad54-1})
 に沿って算出した$\rho$, $\Psi$の値をサンプリングし。MCMC列に加える。\\[1ex] 
 
 {\bf (9) 推定値の算出}\\
