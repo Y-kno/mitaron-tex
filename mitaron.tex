@@ -23,7 +23,7 @@
 
 
 \title{購買行動及びブランド選択に対する広告の外部効果\\-ミクロデータによる消費者行動理論の解明-}
-\author{網頭翔真 \thanks{慶應義塾大学経済学部3年} \and 藤本凌太朗 \thanks{同上} \and 三田村豪太  \and 坂本浩明 \thanks{同上} \and 打出紘基 \thanks{同上} \\ \and 須藤潤 \thanks{同上} \and 小林協介 \thanks{同上} \and 中村咲百合 \thanks{同上} \and 慶野有輝 \thanks{同上}\and 三田村豪太 \thanks{慶應義塾大学}}
+\author{網頭翔真 \thanks{慶應義塾大学経済学部3年} \and 藤本凌太朗 \thanks{同上} \and 坂本浩明 \thanks{同上} \and 打出紘基 \thanks{同上} \\ \and 須藤潤 \thanks{同上} \and 小林協介 \thanks{同上} \and 中村咲百合 \thanks{同上} \and 慶野有輝 \thanks{同上}\and 三田村豪太 \thanks{慶應義塾大学法学部政治学科}}
 
 \begin{document}
 
@@ -33,13 +33,13 @@
 
 \begin{abstract}
 本稿では、広告の外部効果による消費者の購買行動を解明することを目的とする。
-従来の研究で定説とされきた他社の広告効果が自社商品の購買に負の影響を及ぼすことに疑問を呈し、カテゴリ購買とブランド選択という段階的になっている消費者の購買行動に競合他社の広告効果がどのような影響を及ぼしているのか、実データを用いた実証分析を行なった。\footnote{  本稿の作成にあたっては、星野崇宏先生（慶應義塾大学経済学部）をはじめ、多くの方々から有益且つ熱心なコメントを頂戴した。ここに記して感謝の意を表したい。しかしながら、本稿にあり得る誤り、主張の一切の責任はいうま でもなく筆者たち個人に帰するものである。}
+従来の研究で定説とされきた他社の広告効果が自社商品の購買に負の影響を及ぼすことに疑問を呈し、カテゴリ購買とブランド選択という段階的になっている消費者の購買行動に競合他社の広告効果がどのような影響を及ぼしているのか、実データを用いた実証分析を行なった。\footnote{本稿の作成にあたっては、星野崇宏先生（慶應義塾大学経済学部）をはじめ、多くの方々から有益且つ熱心なコメントを頂戴した。ここに記して感謝の意を表したい。しかしながら、本稿にあり得る誤り、主張の一切の責任はいうま でもなく筆者たち個人に帰するものである。}
 
 In this thesis, we propose the new analytical view of consumer behavior in terms of external advertisement influence by competitors. Many studies have been carried out in the field of advertising effectiveness. However, most of them only cover advertising effectiveness of one company on its own bland, and ignore the one of competitors. Even the limited thesis that includes the external advertisement influence by a competitor excessively simplifies an information processing by consumers and concludes that an advertisement by competitors has a negative influence on own companies’ bland purchase. However, taking a concept of category purchase and a positive contribution of advertisement to market itself  into consideration, it is rational to think about a possibility of positive advertisement effect of competitors on own bland. Therefore, based on the hypothesis that competitors’ advertisement can positively influence on own bland, we measured an advertising effectiveness with Poisson regression model as a first step. In a second step, we used a more advanced model to realize a simultaneous estimation of bland selection and category purchase. To sum up, we conclude that competitors’ television advertisement positively has an influence on own bland purchase.
 \end{abstract}
 
 \begin{center}
-キーワード：外部効果、広告効果、ポアソン回帰、商品カテゴリー購買、複数ブランド選択\\
+キーワード：外部効果、広告効果、ポアソン回帰、商品カテゴリー購買、複数ブランド選択、離散選択モデル、マルコフ連鎖モンテカルロ法、同時推定\\
 
 \end{center}
 
@@ -68,30 +68,22 @@ In this thesis, we propose the new analytical view of consumer behavior in terms
  \label{sec:background}
  本研究は、筆者の実体験に端を発した。
  
-木枯らし吹き荒れる秋の家路を足早に進み帰宅した私は、身体に刷り込まれた動作のようにテレビリモコンを手に取り、何の気なしにテレビをつけた。
-テレビには暖かいコーンポタージュのCMが流れており、冬の訪れを感じていた私にはとても惹かれるものがあった。
+木枯らし吹き荒れる秋の家路を足早に進み帰宅した私は、身体に刷り込まれた動作のようにテレビリモコンを手に取り、何の気なしにテレビをつけた。テレビには温かいコーンポタージュのCMが流れており、冬の訪れを感じていた私にはとても惹かれるものがあった。
 
-翌日、より一層寒さが増す三田キャンパスで昨日のCMを思い出し、自動販売機の前へと歩みを進めた。
-マーケティングを学ぶ学生として「まんまとテレビ広告に訴求されてしまった。」と思いながらも、その手は止まることなくコーンポタージュのボタンに一直線に向かった。
+翌日、より一層寒さが増す三田キャンパスで昨日のCMを思い出し、自動販売機の前へと歩みを進めた。マーケティングを学ぶ学生として「まんまとテレビ広告に訴求されてしまった。」と思いながらも、その手は止まることなくコーンポタージュのボタンに一直線に向かった。
 
-しかし、購入したコーンポタージュの缶で手を温めた後、ある一つの事実に気がつく。
-私が昨日見たテレビCMは、A社による広告であったが、手元にある缶はB社が販売するものであった。
+しかし、購入したコーンポタージュの缶で手を温めた後、ある一つの事実に気がつく。私が昨日見たテレビCMは、A社による広告であったが、手元にある缶はB社が販売するコーンポタージュだったのだ。
 
-通常広告とは、ある企業が自社の商品やブランドの認知・購買を促進するためのものであり、競合企業による広告は、自社の製品の売り上げなどに良い影響は及ぼさないと考えるのが妥当であろう。
-しかし、今回私はA社の広告により、B社の製品を購入していたのである。
-正確に言うならば、私は昨日に見たCMを、”A社のCM”ではなく、”コーンポタージュのCM”として認識していたのである。
-こういった消費者の行動は奇異なものではなく、広告の認知の仕方によっては合理的である。
-競合企業による広告が自社製品の売り上げに貢献してしまっているのではないだろうか。
-こういった着眼点から、本論文では競合企業による広告の自社製品への正の影響、つまり正の広告外部効果について実証分析を行う。
+通常広告とは、ある企業が自社の商品やブランドの認知・購買を促進するためのものであり、競合企業による広告は、自社の製品の売り上げなどに良い影響は及ぼさないと考えるのが妥当だろう。しかし、今回私はA社の広告により、B社の製品を購入していたのである。正確に言うならば、私は昨日に見たCMを、「A社のCM」ではなく、「コーンポタージュのCM」として認識していたのである。このような広告の認知の仕方は、広告の機能上ある意味合理的であり、私が行ったような一見非合理的な消費者の行動も奇異なものではないと言える。今回私が経験したこの実体験のように、競合企業による広告が自社製品の売り上げに貢献してしまっているという状況は多く存在するではないだろうか。こういった着眼点から、本論文では競合企業による広告の自社製品への正の影響、つまり正の広告外部効果について実証分析を行う。
 
-\subsection{先行研究}
+\subsection{先行研究とその課題}
 \label{sec:previous_research}
 \citet{sunaga2008}は広告効果に関する研究を二つに大別した。
 一つ目は消費者の行動的反応に焦点を当てた市場反応型の広告効果研究である。
-これは主に、広告や価格を説明変数、売上、市場シェア、ブランド選択といった値を目的変数として、その直接的な関係を回帰分析やロジット・モデルを用いて説明を試みる研究である。
+これは主に、広告や価格を説明変数、売上、市場シェア、ブランド選択といった値を目的変数として、その直接的な関係について回帰分析やロジット・モデルを用いて説明を試みる研究である。
 市場反応型の研究はさらに、扱うデータのタイプによって、集計レベルと個人レベルの2つの研究に分類することができる。集計レベルの研究とは、ブランドの広告支出、GRP、売上、市場シェアといったマーケット・データを用いた研究である。
 一方、個人レベルの研究には、シングル・ソース・データを用いて個人や家庭に対する広告露出量とブランド選択の関係などの解明を試みる研究等がある。
-市場反応型の広告研究を行った論文として、\citet{shimizu1990}のものが挙げられる。
+具体的に市場反応型の広告研究を行った論文として、\citet{shimizu1990}のものが挙げられる。
 これは、集計レベルの研究である。清水は、回帰式モデル、コイックラグ・モデル、山中モデル、広告ストック改良型モデルの4つのモデルをスーパーマーケットのチェーン店の週別、ブランド別売上高データに適用し、広告効果を測定した。
 その結果、洗濯洗剤やカップヌードルなどの製品カテゴリにおいて、テレビ広告やラジオ広告が当該週の金額シェアに貢献していること、また、競合ブランドが存在する場合、ある特定ブランドの売上には、その競合ブランドの広告が影響を与えていることを示した。
 個人レベルの市場反応型研究については、日本国内のデータを用いた研究は少なく、殆ど研究されていない。
@@ -112,8 +104,8 @@ In this thesis, we propose the new analytical view of consumer behavior in terms
 \newpage
 
 \citet{brisoux1980}によれば、消費者は入手可能なブランドの中から名前を知っているブランドを知名集合として認識し、その中でも名前だけでなく、製品属性を知っているブランドを処理集合として認識する。
-そして、処理集合の下位集合として、好意的な態度を示している処理集合、中立的な態度を示す保留集合、否定的な態度を示す拒否集合の三つが存在する。
-最後に、消費者は想起集合の中から購買するブランドを選択する。
+そして、処理集合の下位集合として、処理集合内のブランドを、好意的な態度を示している想起集合、中立的な態度を示す保留集合、否定的な態度を示す拒否集合の三つに分類する。
+最後に、消費者は想起集合内の複数のブランドの中から購買するブランドを選択する。
 したがって、購買候補となる想起集合の中に自社ブランドを組み込ませることが極めて重要となる。\citet{saito1999}は研究で、台所用洗剤に関するスキャナーパネルデータを用いて、上で述べた考慮集合を形成する際に、広告が正の効果を与えていることを示した。
 さらに、\citet{saito1999}は、ロジットモデルと段階的ブランド選択モデルの結果を比較し、段階的ブランド選択モデルが考慮集合形成における広告効果研究に有用であると結論付けている。
 ここで、\citet{urano2012}によれば、考慮集合と想起集合はほぼ同義である。
@@ -131,14 +123,14 @@ In this thesis, we propose the new analytical view of consumer behavior in terms
 そのため、解釈上の違いを考慮しなければ正確に広告効果を測定できているとは言えない。
 
 また、産業組織論において、広告は消費者の需要、つまり当該カテゴリの消費量を増大させると説明している。\footnote{産業組織論における広告研究に関する詳細に関しては、\citet{uekusa2013}や\citet{nagaoka2013}を参考にされたい。}
-このとき、広告によってもたらされたその需要の増加分は全て同一のブランドの消費量増分に帰する訳ではなく、ブランドシェアなどに近似する形で複数のブランドに分配されることになるだろう。
+このとき、広告によってもたらされたその需要の増加分は、単一ブランドの消費に帰するのではなく、ブランドシェアに近似する形で複数のブランドに分配されることになるだろう。
 これはすなわち、競合企業の広告によって自社ブランドの売り上げが絶対値的に上昇する可能性があることを示す。
 産業組織論的観点から見た広告のこのような可能性は、上述したマーケティング上の広告研究には含まれておらず、考慮に入れる必要がある。
 
 ここまで広告に関する先行研究の現状とその問題点について述べてきた。
 一つ目は、広告効果研究において、競合企業の広告が及ぼす影響を考慮している研究が少ないという点。
 二つ目は、競合企業の広告効果を考慮していたとしても、消費者によって広告の認識の仕方を一義的に捉えてしまっている点。
-最後に、広告は消費者の需要を増大させるという、産業組織論的視点が従来の広告研究に組み込まれていない点である。
+最後に、広告は消費者の需要を増大させるという産業組織論的視点が従来の広告研究に組み込まれていない点である。
 以上の問題点に基づき、\ref{ch:hypothesis}章で本論文の仮説を提示する。
 
 
@@ -264,8 +256,6 @@ In this thesis, we propose the new analytical view of consumer behavior in terms
  \end{center}
 \end{table}
 
-\newpage
-
 \subsubsection{消費者の属性データ}
 \label{subsec:consumer_distribution}
 分析対象である消費者の属性データの分布は表\ref{tab:consumer_distribution}\footnote{n=3407}に示す。
@@ -302,31 +292,8 @@ In this thesis, we propose the new analytical view of consumer behavior in terms
    \label{tab:consumer_distribution}
   \end{center}
  \end{table}
-
-\begin{figure}[htbp]
- \begin{minipage}{0.3\hsize}
-  \centering
-  \includegraphics[width=5cm]{./fig/3-2-2_seibetsu.png}
-  \caption{性別}
-  \label{fig:consumer_sex}
- \end{minipage}
- \begin{minipage}{0.3\hsize}
-  \centering
-  \includegraphics[width=5cm]{./fig/3-2-2_nensyu.png}
-  \caption{年収}
-  \label{fig:consumer_annal_income}
- \end{minipage}
- \begin{minipage}{0.3\hsize}
-  \centering
-  \includegraphics[width=5cm]{./fig/3-2-2_kekkon.png}
-  \caption{結婚}
-  \label{fig:consumer_marriage}
- \end{minipage}
-\end{figure}
-
-\newpage
-
-\begin{table}[htbp]
+ 
+ \begin{table}[htbp]
  \centering
   \caption{属性データと発泡酒購買量}
 \begin{center}
@@ -344,9 +311,33 @@ In this thesis, we propose the new analytical view of consumer behavior in terms
    \label{tab:distribution_dummy}
   \end{center}
  \end{table}
-
+ 
  ***は0.1％、**は1％、*は5％、.は10\%水準で統計的に有意であることを示す 。
 
+\begin{figure}
+ \begin{minipage}{0.5\columnwidth}
+  \centering
+  \includegraphics[width=\columnwidth]{./fig/3-2-2_seibetsu.png}
+  \caption{性別}
+  \label{fig:consumer_sex}
+ \end{minipage}
+ \begin{minipage}{0.5\columnwidth}
+  \centering
+  \includegraphics[width=\columnwidth]{./fig/3-2-2_nensyu.png}
+  \caption{年収}
+  \label{fig:consumer_annal_income}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm]{./fig/3-2-2_kekkon.png}
+  \caption{結婚}
+  \label{fig:consumer_marriage}
+ \end{figure}
+ 
+ \newpage
+ 
 \subsection{ポアソン回帰モデル}
 \label{sec:poisson}
 この節では、自社ブランド商品の購買量を目的変数、自社及び競合他社のテレビCM接触回数を説明変数とした回帰分析により、競合他社の広告効果が自社ブランド商品の購買にどのような影響を与えているのかを検証する。
@@ -555,6 +546,11 @@ c.潜在効用の同時分布\\
 \end{equation}\\
 この時、$\rho$は$v_{it}$と$u_{it}$の各要素の共分散ベクトル、$\Psi$ は$v_{it}$が所与である時の$u_{it}$の分散共分散行列である。
 この同時分布の注意点としては、カテゴリーが非購買である時は必然的にそのカテゴリーに含まれるブランドは購買されないので、$u_{it}$は存在しない。これは、ブランド選択よりカテゴリー選択が先に起きるという仮定に基づいている。\\
+また、消費者iの購買数をとすれば、
+\begin{equation}
+Q_{itm} \leq Q_{itn} \iff u_{itm} \leq u_{itn}
+\end{equation}\\
+が成り立つ。これにより、推定した潜在効用から購買量の大小関係を把握することができる。
 \\
 d.尤度\\
 ＜d-1＞完全データの尤度\\
@@ -922,8 +918,27 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1
 \end{table}
 ただし、括弧内は標準誤差。
 
+さらに、\ref{sec:poisson}節で得られた結果も踏まえ、これらの実データ解析の結論をマーケティング・広告戦略の観点から考察する。
 
+ある商品カテゴリー業界はA, B, Cの3ブランドの寡占状態であり、そのシェアは60\%:30\%:10\%であるとする。この時、業界全体の総売上が売り上げ100であるとすると、3社がどれも広告を売っていない状態での売り上げは図\ref{fig:3-4-3_no_ad}のようになる。
 
+ここで、ブランドCのみが広告を打った場合、それぞれの売上・シェアは図\ref{fig:3-4-3_c_ad}のように変動する。まず、従来の理論ではブランドC以外の2ブランドはその売上を落とすと考えられてきたが、本実データ解析の結果からブランドCの広告の効果はカテゴリー購買の効用に正の影響を与えるという結論が得られており、商品カテゴリー全体の売上は125にまで上昇し、これに伴って広告を発していないブランドA, ブランドBもその売上を若干伸ばすと考えられる。しかし、ブランド選択の段階においてブランドCの広告は自ブランドの選択のみに対して正の影響を与え、他2ブランドのブランド選択に対しては負の影響を与えるため、シェアの面ではブランドCのみがその割合を増やし、他2ブランドはシェアを落とすという結果になると考えられる。この時、ブランドAとブランドBとではとるべき広告戦略が異なる。元々最大シェアを持っていたブランドAはカテゴリーの総売上が増加した際に大きな恩恵を受けることになるのでシェアを最大に保っている間は自ブランドの広告を打つ必要はそれ程ないのに対し、ブランドBはシェア面でブランドCに迫られる形になっており、自ブランドの広告を打つ必要性があると言える。このように本実データ解析の結果を踏まえることで、広告戦略において、他ブランド広告の売上面・シェア面の両面への効果と自ブランドの売上・カテゴリー内でのシェア考慮した上で自ブランドに最適になるような広告戦略をとることができる。
+
+\begin{figure}[htbp]
+ \centering
+\begin{minipage}{0.46\columnwidth}
+ \centering
+ \includegraphics[width=\columnwidth]{./fig/3-4-3_no_ad.png}
+ \caption{全ブランドが広告を打たなかった場合}
+ \label{fig:3-4-3_no_ad}
+\end{minipage}
+\begin{minipage}{0.5\columnwidth}
+ \centering
+  \includegraphics[width=\columnwidth]{./fig/3-4-3_c_ad.png}
+  \caption{ブランドCのみ広告を打った場合}
+  \label{fig:3-4-3_c_ad}
+ \end{minipage}
+\end{figure}
 
 \section{結論}
 \label{ch:conclusion}
@@ -979,6 +994,183 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1
 \newpage
 \appendix % 付録開始
 
+\section{パラメーター推定について}
+
+\begin{gather}
+ \beta \sim N({\boldsymbol\mu}_{o\beta},V_{0\beta}),
+ \quad \gamma \sim N({\boldsymbol\mu}_{0\gamma},V_{0\gamma}),
+ \quad \rho \sim N({\boldsymbol\mu}_{0\rho},V_{0\rho}),
+ \quad \psi \sim IW(\pi_{0\psi},{\Pi}_{0\psi}^{-1}),\notag \\
+ {\boldsymbol\mu}_{0\beta} = 0,
+ {\boldsymbol\mu}_{0\gamma} = 0,
+ {\boldsymbol\mu}_{0\rho} = 1000・I_{B},
+ V_{0\beta} = 1000・I_{J}, \notag \\
+ V_{0\gamma} = 1000・I_{Q},
+ V_{0\rho} = 1000・I_{B},
+ \pi_{0\psi} = B+1,
+ \Pi_{0\psi} = \pi_{0\psi}・I_{B}
+\end{gather}
+
+\begin{equation}
+\begin{split}
+ \prod_{i=1}^{N}\Biggl[
+  \prod_{t_{1}}^{T_{i1}} \left\{
+   \int_{R_{it_{1}}} p(u_{it1},|v_{it_{1}},\rho,\psi,\beta,\gamma,x_{it_{1}}, W_{it_{1}})
+   d {\boldsymbol u}_{it_{1}} \times I(v_{it_{1}}>0) \times p(v_{it_{1}}|\beta,x_{it_{1}})  
+  \right\} \\
+  \times \prod_{t_{0}}^{T_{i_{0}}}\left\{
+   I(v_{it_{0}}<0)×p(v_{it_{0}}|\beta,x_{it_{0}})
+  \right\}
+ \Biggr]
+ ×p(\rho)×p(\psi)×p(\beta)×p(\gamma)
+\end{split}
+\end{equation}
+
+\begin{equation} \label{formula32}
+R_{it} =
+\begin{Bmatrix}
+{\boldsymbol\mu}_{it1} :
+\begin{bmatrix}
+u_{it1b} \geq 0 \;\; \mbox{or} \;\; \mbox{argmax}_{k}u_{it1k} = b \
+(y^\ast_{it1b} = 1) \
+u_{it1b} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{it1k} \neq b \
+(y^\ast_{it1b} = 0)
+\end{bmatrix}
+\end{Bmatrix}
+\end{equation}
+
+\begin{equation}\label{formula33}
+I({\boldsymbol u}_{it_{1}}\in R_{it_{1}})×p({\boldsymbol\ u}_{it_{1}}|v_{it_{1}},\rho,\psi,\beta,\gamma,\textbf{x}_{it_{1}},W_{it_{1}})
+\end{equation}
+
+\begin{equation}\label{formula34}
+E[{\boldsymbol\mu}_{it}|v_{it}]=W_{it}\gamma+\rho(v_{it}-\textbf{x}_{it}^{'}\beta)
+\end{equation}
+
+\begin{equation}\label{formula35}
+V[{\boldsymbol\mu}_{it}|v_{it}]=\Sigma_{b}-\rho\rho^{'}=\psi
+\end{equation}
+
+\begin{equation}\label{formula36}
+I(v_{it0}<0)×p(v_{it0}|\Theta)
+\end{equation}
+
+\begin{equation}\label{formula37}
+p({\boldsymbol\mu}_{it}|\Theta,v_{it})×I(v_{it}>0)×p(v_{it}|\Theta)\\
+=I(v_{it}>0)×p(v_{it}|\Theta,{\boldsymbol\mu}_{it1})×p({\boldsymbol\mu}_{it1}|\Theta)
+\end{equation}
+
+\begin{equation}\label{formula39}
+E[v_{it}|{\boldsymbol u}_{it}]=\textbf{x}_{it}^{'}\beta+\rho^{'}\Sigma_{b}^{-1}({\boldsymbol\mu}_it-W_{it1}\gamma)
+\end{equation}
+
+\begin{equation}\label{formula40}
+V[v_{it}|{\boldsymbol u}_{it}] = 1-\rho^{'}\Sigma_{b}^{'}\rho
+\end{equation}
+
+\begin{equation}\label{formula41}
+\prod_{i=1}^{N}\left[
+ \prod_{t_{1}}^{T_{i1}}\left\{
+  p({\boldsymbol\mu}_{it1}|v_{it1},\rho,\psi,\beta,\gamma,\textbf{x}_{it1},W_{it1})
+  ×p(v_{it1}|\beta,\textbf{x}_{it1})
+ \right\}
+ ×\prod_{t0}^{T_{i0}}\left\{
+  p(v_{it0}|\beta,\textbf{x}_{it0})
+ \right\}
+\right]
+×p(\beta)
+\end{equation}
+
+\begin{equation}\label{formula42}
+\beta \sim N({\boldsymbol\mu}_{\beta},B_{1}^{-1})
+\end{equation}
+
+\begin{equation}\label{formula43}
+B_{1} = \left[
+ \Sigma_{i}\left\{
+  \Sigma_{t_{1}}\textbf{x}_{it1}(\rho^{'}\psi^{-1}\rho+1)\textbf{x}_{it1}^{'}
+  +\Sigma_{t_{0}}\textbf{x}_{it0}\textbf{x}_{it0}^{'}
+ \right\}
+ +V_{0\beta}^{-1}
+\right]
+\end{equation}
+
+
+\begin{equation} \label{formula44}
+\mu_{\beta} = B_{1} \times
+\left[
+\sum_{\substack{i}}
+\left\{
+\sum_{\substack{t_{1}}}
+\left\{
+x_{it_{1}} (v_{it_{1}} - \rho^{\prime} \Psi^{-1} w_{it_{1}})
+\right\} + \sum_{\substack{t_{0}}} x_{it_{0}} v_{it_{0}} + V^{-1}_{0\beta} \mu_{0\beta}
+\right\}
+\right]
+\end{equation}
+
+\begin{equation} \label{formula45}
+\prod_{i=1}^{N} \prod_{t_{1}}^{T_{i1}} p(u_{it_{1}} | v_{it_{1}}, \rho, \Psi, \beta, \gamma, x_{it_{1}}, W_{it_{1}}) \times p(\gamma)
+\end{equation}
+
+\begin{equation} \label{formula46}
+\gamma \sim N(\mu_{\gamma}, V_{\gamma})
+\end{equation}
+
+\begin{equation} \label{formula47}
+V_{\gamma} = 
+\left(
+\sum_{\substack{i}} \sum_{\substack{t_{1}}} W^{\prime}_{it_{1}} \Psi^{-1} W_{it_{1}} + V^{-1}_{0\gamma}
+\right)
+\end{equation}
+
+\begin{equation} \label{formula48}
+\mu_{\gamma} = V_{\gamma} \times
+\left(
+\sum_{\substack{i}} \sum_{\substack{t_{1}}} W^{\prime}_{it_{1}} \Psi^{-1} \xi_{it_{1}} + V^{-1}_{0\gamma} u_{0\gamma}
+\right)
+\end{equation}
+
+\begin{equation} \label{formula49}
+\prod_{i=1}^{N} \prod_{t_{1}}^{T_{i1}} p(u_{it_{1}} | v_{it_{1}}, \rho, \Psi, \beta, \gamma, x_{it_{1}}, W_{it_{1}}) \times p(\rho)
+\end{equation}
+
+\begin{equation} \label{formula50}
+\rho \sim N(\mu_{\rho}, V_{\rho})
+\end{equation}
+
+\begin{equation} \label{formula51}
+V_{p} = 
+\left(
+\sum_{\substack{i}} \sum_{\substack{t_{1}}} (v_{it_{1}} - x^{\prime}_{it_{1}} \beta)^2 \Psi^{-1} + V^{-1}_{0\rho}
+\right)
+\end{equation}
+
+\begin{equation} \label{formula52}
+\mu_{\rho} = V_{\rho} \times 
+\left(
+\sum_{\substack{i}} \sum_{\substack{t_{1}}} (v_{it_{1}} - x^{\prime}_{it_{1}} \beta) \Psi^{-1} \zeta_{it_{1}} + V^{-1}_{0\rho} \mu_{0\rho}
+\right)
+\end{equation}
+
+\begin{equation} \label{formula53}
+\prod_{i=1}^{N} \prod_{t_{1}}^{T_{i1}} p(u_{it_{1}} | v_{it_{1}}, \rho, \Psi, \beta, \gamma, x_{it_{1}}, W_{it_{1}}) \times p(\Psi)
+\end{equation}
+
+\begin{equation} \label{formula54}
+\Psi \sim IW
+\left(
+\pi_{0\Psi} + \sum_{\substack{i}}^{\substack{N}} T_{i}, \Pi_{0\Psi} + \Pi_{\Psi}
+\right)
+\end{equation}
+
+\begin{equation} \label{formula55}
+D = \mbox{diag} (\sigma_{11}^{-1/2}, \sigma_{22}^{-1/2}, 1, \ldots, 1)
+\end{equation}
+
+\begin{equation} \label{formula56}
+\Sigma \Leftarrow D \Sigma D^{\prime}
+\end{equation}
 
 \newpage
 
