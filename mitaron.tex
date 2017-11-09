@@ -476,24 +476,24 @@ y^\ast_{itb} = \begin{cases}
              0 \;\; ( u_{itb} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{itb} \neq b)\\
              \end{cases}
 \end{equation}\\
-さらに、ブランド$b$に対する潜在効用を$u_{itb}$とし、説明変数を$W_{it}$、変数の係数を$\gamma$ とする。このとき、ブランドの潜在効用の行列を$\textbf{u}_{it} = (u_{it1}^{*},...,u_{itB}^{*})’$とする。ただし、個人差を考慮するために$W_{it}$は単位行列と説明変数を含む列ベクトルを並べたような形状になる。説明変数には、自社の広告接触回数、他社の広告接触回数、年収や年齢等のデモグラフィック変数が含まれる。$OW = 自社の広告接触回数(own conpany)$、$OT = 他社の広告接触回数(other conpany)$、$D =デモグラフィック変数$として、これらを以下のように示す。\\
+さらに、ブランド$b$に対する潜在効用を$u_{itb}$とし、説明変数を$W_{it}$、変数の係数を$\gamma$ とする。このとき、ブランドの潜在効用の行列を$\textbf{u}_{it} = (u_{it1}^{*},...,u_{itB}^{*})’$とする。ただし、個人差を考慮するために$W_{it}$は単位行列と説明変数を含む列ベクトルを並べたような形状になる。説明変数には、自社の広告接触回数、他社の広告接触回数、年収や年齢等のデモグラフィック変数が含まれる。$OW = 自社の広告接触回数(own conpany)$、$OT = 他社の広告接触回数(other conpany)$、$B = ブランドロイヤリティ$として、これらを以下のように示す。\\
 \begin{equation} \label{formulab2}
 \textbf{u}_{it} = W_{it}\gamma + \delta_{it}
 \end{equation}\\
 \begin{equation} \label{formulab3}
   W_{it} =
   \begin{pmatrix}
-      1 & 0 & 0 & \ldots & 0 & OW_{it1} & OT_{it1} & D_{it1} \\
-      0 & 1 & 0 & \ldots & 0 & OW_{it2} & OT_{it2} & D_{it2} \\
+      1 & 0 & 0 & \ldots & 0 & OW_{it1} & OT_{it1} & B_{it1} \\
+      0 & 1 & 0 & \ldots & 0 & OW_{it2} & OT_{it2} & B_{it2} \\
        &  & \vdots &  &  & \vdots & \vdots & \vdots \\
-      0 & 0 & 0 & \ldots & 1 & OW_{itB} & OT_{itB} & D_{itB}
+      0 & 0 & 0 & \ldots & 1 & OW_{itB} & OT_{itB} & B_{itB}
     \end{pmatrix}
     ,
 \end{equation}\\
 \begin{equation} \label{formulab4}
   \boldsymbol{\gamma} =
   \begin{pmatrix}
-      \gamma_{it1} & \ldots & \gamma_{B} & \gamma_{OW} & \gamma_{OT} & \gamma_{D}
+      \gamma_{it1} & \ldots & \gamma_{B} & \gamma_{OW} & \gamma_{OT} & \gamma_{B}
    \end{pmatrix}
 \end{equation}\\
 \\
