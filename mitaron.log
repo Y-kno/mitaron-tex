@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.5.22)  9 NOV 2017 18:55
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.5.22)  9 NOV 2017 19:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -583,11 +583,11 @@ No file mitaron.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1228.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1228.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1233.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1233.
 (./mitaron.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1228.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1228.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1233.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1233.
 
 Package rerunfilecheck Info: File `mitaron.out' has not changed.
 (rerunfilecheck)             Checksum: A0CDB0B9F4D3C2C80298791979A5BAE2;1828.
@@ -595,15 +595,15 @@ Package rerunfilecheck Info: File `mitaron.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1228.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1233.
  ) 
 Here is how much of TeX's memory you used:
- 6632 strings out of 493693
- 94577 string characters out of 6149787
- 194937 words of memory out of 5000000
- 10061 multiletter control sequences out of 15000+600000
+ 6633 strings out of 493693
+ 94591 string characters out of 6149787
+ 194978 words of memory out of 5000000
+ 10062 multiletter control sequences out of 15000+600000
  28999 words of font info for 130 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  31i,28n,28p,1468b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mitaron.dvi (29 pages, 132052 bytes).
+Output written on mitaron.dvi (29 pages, 132328 bytes).
