@@ -3,8 +3,8 @@
 \contentsline {subsection}{\numberline {1.2}先行研究とその課題}{1}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}本稿の構成}{4}{subsection.1.3}
 \contentsline {section}{\numberline {2}仮説の提示}{4}{section.2}
-\contentsline {section}{\numberline {3}実証分析}{4}{section.3}
-\contentsline {subsection}{\numberline {3.1}使用データ}{5}{subsection.3.1}
+\contentsline {section}{\numberline {3}実証分析}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}使用データ}{6}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}ブランドロイヤリティの考慮}{7}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}消費者の属性データ}{7}{subsubsection.3.1.2}
 \contentsline {subsection}{\numberline {3.2}ポアソン回帰モデル}{10}{subsection.3.2}
