@@ -462,7 +462,7 @@ y_{it} = \begin{cases}
              1 \;\; ( v_{it} > 0 )\\
              0 \;\; ( v_{it} \leq 0 )\\
              \end{cases}
-             , \;\; v_{it} = x^{\prime}_{it} \beta + \epsilon_{it},
+             , \;\; v_{it} = \boldsymbol{x}^{\prime}_{it} \boldsymbol{\beta} + \epsilon_{it},
 \end{equation}
 \begin{equation} \label{formulaa2}
 \epsilon_{it} \sim N(0, 1)
@@ -491,7 +491,7 @@ y^\ast_{itb} = \begin{cases}
     ,
 \end{equation}\\
 \begin{equation} \label{formulab4}
-  \gamma =
+  \boldsymbol{\gamma} =
   \begin{pmatrix}
       \gamma_{it1} & \ldots & \gamma_{B} & \gamma_{OW} & \gamma_{OT} & \gamma_{D}
    \end{pmatrix}
@@ -507,7 +507,7 @@ c.潜在効用の同時分布\\
    \sim N
   \begin{pmatrix}
     \begin{pmatrix}
-    x^{\prime}_{it}\beta\\
+    \boldsymbol{x}^{\prime}_{it}\boldsymbol{\beta}\\
     W_{it}\gamma
     \end{pmatrix}
     ,
@@ -549,7 +549,7 @@ p(y^\ast_{it} | v_{it}, \Theta_{u}) = \int_{R_{it}} p(\textbf{u}_{it} | v_{it}, 
 この時、尤度は以下のように示せる。
 \begin{equation} \label{formulad1_1}
 \begin{split}
-L(y, y^\ast | \Theta_{v}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
+L(\boldsymbol{y}, \boldsymbol{y^\ast} | \Theta_{v}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 \begin{Bmatrix}
 \int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{v}dv_{it})
 \end{Bmatrix}^{y_{it}} \times \
@@ -577,7 +577,7 @@ L(y, y^\ast | \Theta_{v}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 欠測値を含むデータの解析を行う場合には完全尤度を利用する。完全尤度とは、完全データの尤度から欠測値を周辺化した尤度である。ブランド購買の観測部分を$y_{obs}^{*}$とすると、完全尤度は以下のように示される。\\
 \begin{equation} \label{formulad2_1}
 \begin{split}
-L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}) &=
+L(\boldsymbol{y}, \boldsymbol{y}^\ast_{obs} | \Theta_{v}, \Theta_{u}) &=
 \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 \left\{
 \int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{u}) dv_{it}
@@ -604,7 +604,7 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}) &=
 また、ブランド購買変数$y_{it}^{*}$の欠測値がランダムである場合、ブランド購買とカテゴリー購買が独立であるといえるため、${\boldsymbol \rho} = 0$ として、以下のように表現できる。\\
 \begin{equation} \label{formulad2_2}
 \begin{split}
-L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
+L(\boldsymbol{y}, \boldsymbol{y}^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
 \left\{
 \int_{v_{it} \geq 0} p(v_{it}) dv_{it}
 \left[
@@ -619,162 +619,6 @@ L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1
 \end{equation}\\
 \\
 以上が尤度に関する部分であるが、実際の解析において最尤推定しようとすれば多数の積分により計算が複雑になるため、推定が困難になる。そこで、実際の推定ではマルコフ連鎖モンテカルロ方を用いて推定を行った。
-
-\begin{equation} \label{formulad2_3}
-y_{it} = \begin{cases}
-             1 \;\; ( v_{it} > 0 )\
-             0 \;\; ( v_{it} \leq 0 )\
-             \end{cases}
-             , \;\; v_{it} = x^{\prime}_{it} \beta + \epsilon_{it},
-\end{equation}
-
-
-\begin{equation} \label{formulad2_4}
-\epsilon_{it} \sim N(0, 1)
-\end{equation}
-
-
-\begin{equation} \label{formulad2_5}
-y^\ast_{itb} = \begin{cases}
-             1 \;\; ( u_{itb} \geq 0 \;\; \mbox{or} \;\; \mbox{argmax}_{k}u_{itb} = b)\
-             0 \;\; ( u_{itb} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{itb} \neq b)\
-             \end{cases}
-\end{equation}
-
-\begin{equation} \label{formulad2_6}
-u_{it} = W_{it}\gamma + \delta_{it}
-\end{equation}
-
-\begin{equation} \label{formulad2_7}
-  W_{it} =
-  \begin{pmatrix}
-      1 & 0 & 0 & \ldots & 0 & OW_{it1} & OT_{it1} & D_{it1} \\
-      0 & 1 & 0 & \ldots & 0 & OW_{it2} & OT_{it2} & D_{it2} \\
-       &  & \vdots &  &  & \vdots & \vdots & \vdots \\
-      0 & 0 & 0 & \ldots & 1 & OW_{itB} & OT_{itB} & D_{itB}
-    \end{pmatrix}
-    ,
-\end{equation}
-
-\begin{equation} \label{formulad2_8}
-  \gamma =
-  \begin{pmatrix}
-      \gamma_{it1} & \ldots & \gamma_{B} & \gamma_{OW} & \gamma_{OT} & \gamma_{D}
-   \end{pmatrix}
-\end{equation}
-
-\begin{equation} \label{formulad2_9}
-  \begin{pmatrix}
-      v_{it} \\
-      u_{it} 
-   \end{pmatrix}
-   \sim N
-  \begin{pmatrix}
-	  \begin{pmatrix}
-	  x^{\prime}_{it}\beta\\
-	  W_{it}\gamma
-	  \end{pmatrix}
-	  ,
-	  \begin{pmatrix}
-	  1 & p^\prime\\
-	  p & \Psi + p \cdot p^\prime
-	  \end{pmatrix}
-  \end{pmatrix}
-\end{equation}
-
-\begin{equation} \label{formulad2_10}
-\sum = 
-\begin{pmatrix}
-1 & p^\prime\\
-p & \Psi + p \cdot p^\prime
-\end{pmatrix}
-\end{equation}
-
-\begin{equation} \label{formulad2_11}
-p(y^\ast_{it} | v_{it}, \Theta_{u}) = \int_{R_{it}} p(u_{it} | v_{it}, \Theta_{u}) du_{it1} \ldots du_{itB}
-\end{equation}
-
-\begin{equation} \label{formulad2_12}
-R_{it} = 
-\begin{Bmatrix}
-u_{it} : 
-\begin{bmatrix}
-u_{itb} \geq 0 \;\; \mbox{or} \;\; \mbox{argmax}_{k}u_{itk} = b \
-(y^\ast_{itb} = 1) \
-u_{itb} < 0 \;\; \mbox{and} \;\; \mbox{argmax}_{k}u_{itk} \neq b \
-(y^\ast_{itb} = 0)
-\end{bmatrix}
-\end{Bmatrix}
-\end{equation}
-
-\begin{equation} \label{formulad2_13}
-\begin{split}
-L(y, y^\ast | \Theta_{u}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
-\begin{Bmatrix}
-\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{u}dv_{it})
-\end{Bmatrix}^{y_{it}} \times \
-\begin{Bmatrix}
-\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{u}dv_{it})
-\end{Bmatrix}^{1 - y_{it}} \\
-&= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
-\begin{Bmatrix}
-\int_{v_{it} \geq 0} 
-\begin{bmatrix}
-\int_{R_{it}} p(v_{it}, u_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
-\end{bmatrix} dv_{it}
-\end{Bmatrix}^{y_{it}}  \\
-& \quad \times \
-\begin{Bmatrix}
-\int_{v_{it} < 0} 
-\begin{bmatrix}
-\int_{R_{it}} p(v_{it}, u_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
-\end{bmatrix} dv_{it}
-\end{Bmatrix}^{1 - y_{it}}
-\end{split}
-\end{equation}
-
-\begin{equation} \label{formulad2_14}
-\begin{split}
-L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
-\left\{
-\int_{v_{it} \geq 0} p(y^\ast_{it} | v_{it}, \Theta_{u}) p(v_{it} | \Theta_{u}) dv_{it}
-\right\}^{y_{it}} \\
-& \quad \times \
-\left\{
-\int_{v_{it} < 0} 
-\left[_{all}
-\sum_{\substack{y^\ast_{it1}, \ldots, y^\ast_{itB}}} p(y^\ast_{it} | v_{it}, \Theta_{u})
-\right] p(v_{it} | \Theta_{u}) dv_{it}
-\right\}^{1 - y_{it}} \\
-&= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
-\left\{
-\int_{v_{it} \geq 0}
-\left[
-\int_{R_{it}} p(v_{it}, u_{it} | \Theta_{v}, \Theta_{u}) du_{it1} \ldots du_{itB}
-\right] dv_{it}
-\right\}^{y_{it}}\\
-& \quad \times \
-\left\{
-\int_{v_{it} < 0} p(v_{it} | \Theta_{v}) dv_{it}
-\right\}^{1 - y_{it}}
-\end{split}
-\end{equation}
-
-\begin{equation} \label{formulad2_15}
-\begin{split}
-L(y, y^\ast_{obs} | \Theta_{v}, \Theta_{u}, p = 0) &= \prod_{i=1}^{N} \prod_{t=1}^{T_{i}}
-\left\{
-\int_{v_{it} \geq 0} p(v_{it}) dv_{it}
-\left[
-\int_{R_{it}} p(u_{it} ) du_{it1} \ldots du_{itB}
-\right]
-\right\}^{y_{it}} \\
-& \quad \times \
-\left\{
-\int_{v_{it} < 0} p(v_{it})dv_{it})
-\right\}^{1 - y_{it}}
-\end{split}
-\end{equation}
 
 \subsubsection{変数選択と推定}
 \label{subsec:simultaneous_variable}
